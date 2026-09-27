@@ -11,7 +11,7 @@ import { Card } from "@/components/ui/card";
 
 export function ProductPreview() {
   return (
-    <section className="mx-auto w-full max-w-5xl px-4 pb-20 sm:px-6 lg:pb-28">
+    <section className="mx-auto w-full max-w-5xl px-4 py-6 sm:py-8 lg:py-10">
       <Card className="overflow-hidden rounded-2xl border-neutral-200 bg-white shadow-sm">
         <div className="flex h-12 items-center justify-between border-b border-neutral-200 px-3 sm:px-5">
           <div className="flex min-w-0 items-center gap-2">
