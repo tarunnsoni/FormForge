@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { Navbar } from "./-components/landing/navbar"
+import { Navbar, Hero, ProductPreview } from "./-components/landing/index"
 
 export const Route = createFileRoute('/')({ component: Home })
 
@@ -8,7 +8,10 @@ function Home() {
     <div className='min-h-screen'>
       <Navbar />
 
-      <main></main>
+      <main className='mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10'>
+        <Hero />
+        <ProductPreview />
+      </main>
     </div>
   )
 }
