@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Show } from "@clerk/tanstack-react-start";
 
 export function Hero() {
   return (
@@ -27,16 +28,18 @@ export function Hero() {
         </p>
 
         <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row">
-          <Button
-            asChild
-            size="lg"
-            className="h-11 rounded-lg bg-indigo-600 px-6 shadow-sm hover:bg-indigo-700"
-          >
-            <Link to="/dashboard/forms/new">
-              Create a Form
-              <ArrowRight />
-            </Link>
-          </Button>
+          <Show when='signed-in'>
+            <Button
+              asChild
+              size="lg"
+              className="h-11 rounded-lg bg-indigo-600 px-6 shadow-sm hover:bg-indigo-700"
+            >
+              <Link to="/dashboard/forms/new">
+                Create a Form
+                <ArrowRight />
+              </Link>
+            </Button>
+          </Show>
 
           <Button
             asChild

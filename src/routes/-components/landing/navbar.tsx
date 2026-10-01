@@ -91,7 +91,7 @@ export function Navbar() {
             <div className="my-2 h-px bg-neutral-200" />
 
             <Show when="signed-out">
-              <Button asChild variant="ghost" className="justify-start">
+              <Button asChild variant='secondary'>
                 <SignInButton mode="modal">Sign In</SignInButton>
               </Button>
 
