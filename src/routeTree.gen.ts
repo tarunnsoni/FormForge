@@ -14,6 +14,7 @@ import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/
 import { Route as AuthenticatedDashboardRouteRouteImport } from './routes/_authenticated/dashboard/route'
 import { Route as FSlugRouteImport } from './routes/f/$slug'
 import { Route as AuthenticatedDashboardIndexRouteImport } from './routes/_authenticated/dashboard/index'
+import { Route as AuthenticatedDashboardFormsNewRouteImport } from './routes/_authenticated/dashboard/forms/new'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -41,17 +42,25 @@ const AuthenticatedDashboardIndexRoute =
     path: '/',
     getParentRoute: () => AuthenticatedDashboardRouteRoute,
   } as any)
+const AuthenticatedDashboardFormsNewRoute =
+  AuthenticatedDashboardFormsNewRouteImport.update({
+    id: '/forms/new',
+    path: '/forms/new',
+    getParentRoute: () => AuthenticatedDashboardRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/dashboard': typeof AuthenticatedDashboardRouteRouteWithChildren
   '/f/$slug': typeof FSlugRoute
   '/dashboard/': typeof AuthenticatedDashboardIndexRoute
+  '/dashboard/forms/new': typeof AuthenticatedDashboardFormsNewRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/f/$slug': typeof FSlugRoute
   '/dashboard': typeof AuthenticatedDashboardIndexRoute
+  '/dashboard/forms/new': typeof AuthenticatedDashboardFormsNewRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -60,12 +69,14 @@ export interface FileRoutesById {
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRouteRouteWithChildren
   '/f/$slug': typeof FSlugRoute
   '/_authenticated/dashboard/': typeof AuthenticatedDashboardIndexRoute
+  '/_authenticated/dashboard/forms/new': typeof AuthenticatedDashboardFormsNewRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dashboard' | '/f/$slug' | '/dashboard/'
+  fullPaths:
+    '/' | '/dashboard' | '/f/$slug' | '/dashboard/' | '/dashboard/forms/new'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/f/$slug' | '/dashboard'
+  to: '/' | '/f/$slug' | '/dashboard' | '/dashboard/forms/new'
   id:
     | '__root__'
     | '/'
@@ -73,6 +84,7 @@ export interface FileRouteTypes {
     | '/_authenticated/dashboard'
     | '/f/$slug'
     | '/_authenticated/dashboard/'
+    | '/_authenticated/dashboard/forms/new'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -118,16 +130,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedDashboardIndexRouteImport
       parentRoute: typeof AuthenticatedDashboardRouteRoute
     }
+    '/_authenticated/dashboard/forms/new': {
+      id: '/_authenticated/dashboard/forms/new'
+      path: '/forms/new'
+      fullPath: '/dashboard/forms/new'
+      preLoaderRoute: typeof AuthenticatedDashboardFormsNewRouteImport
+      parentRoute: typeof AuthenticatedDashboardRouteRoute
+    }
   }
 }
 
 interface AuthenticatedDashboardRouteRouteChildren {
   AuthenticatedDashboardIndexRoute: typeof AuthenticatedDashboardIndexRoute
+  AuthenticatedDashboardFormsNewRoute: typeof AuthenticatedDashboardFormsNewRoute
 }
 
 const AuthenticatedDashboardRouteRouteChildren: AuthenticatedDashboardRouteRouteChildren =
   {
     AuthenticatedDashboardIndexRoute: AuthenticatedDashboardIndexRoute,
+    AuthenticatedDashboardFormsNewRoute: AuthenticatedDashboardFormsNewRoute,
   }
 
 const AuthenticatedDashboardRouteRouteWithChildren =
