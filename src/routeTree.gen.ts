@@ -11,10 +11,12 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
+import { Route as AuthenticatedBuilderRouteImport } from './routes/_authenticated/_builder'
 import { Route as AuthenticatedDashboardRouteRouteImport } from './routes/_authenticated/dashboard/route'
 import { Route as FSlugRouteImport } from './routes/f/$slug'
 import { Route as AuthenticatedDashboardIndexRouteImport } from './routes/_authenticated/dashboard/index'
-import { Route as AuthenticatedDashboardFormsNewRouteImport } from './routes/_authenticated/dashboard/forms/new'
+import { Route as AuthenticatedDashboardFormsIndexRouteImport } from './routes/_authenticated/dashboard/forms/index'
+import { Route as AuthenticatedBuilderDashboardFormsNewRouteImport } from './routes/_authenticated/_builder/dashboard/forms/new'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -24,6 +26,10 @@ const IndexRoute = IndexRouteImport.update({
 const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
   id: '/_authenticated',
   getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedBuilderRoute = AuthenticatedBuilderRouteImport.update({
+  id: '/_builder',
+  getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 const AuthenticatedDashboardRouteRoute =
   AuthenticatedDashboardRouteRouteImport.update({
@@ -42,11 +48,17 @@ const AuthenticatedDashboardIndexRoute =
     path: '/',
     getParentRoute: () => AuthenticatedDashboardRouteRoute,
   } as any)
-const AuthenticatedDashboardFormsNewRoute =
-  AuthenticatedDashboardFormsNewRouteImport.update({
-    id: '/forms/new',
-    path: '/forms/new',
+const AuthenticatedDashboardFormsIndexRoute =
+  AuthenticatedDashboardFormsIndexRouteImport.update({
+    id: '/forms/',
+    path: '/forms/',
     getParentRoute: () => AuthenticatedDashboardRouteRoute,
+  } as any)
+const AuthenticatedBuilderDashboardFormsNewRoute =
+  AuthenticatedBuilderDashboardFormsNewRouteImport.update({
+    id: '/dashboard/forms/new',
+    path: '/dashboard/forms/new',
+    getParentRoute: () => AuthenticatedBuilderRoute,
   } as any)
 
 export interface FileRoutesByFullPath {
@@ -54,37 +66,53 @@ export interface FileRoutesByFullPath {
   '/dashboard': typeof AuthenticatedDashboardRouteRouteWithChildren
   '/f/$slug': typeof FSlugRoute
   '/dashboard/': typeof AuthenticatedDashboardIndexRoute
-  '/dashboard/forms/new': typeof AuthenticatedDashboardFormsNewRoute
+  '/dashboard/forms/': typeof AuthenticatedDashboardFormsIndexRoute
+  '/dashboard/forms/new': typeof AuthenticatedBuilderDashboardFormsNewRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/f/$slug': typeof FSlugRoute
   '/dashboard': typeof AuthenticatedDashboardIndexRoute
-  '/dashboard/forms/new': typeof AuthenticatedDashboardFormsNewRoute
+  '/dashboard/forms': typeof AuthenticatedDashboardFormsIndexRoute
+  '/dashboard/forms/new': typeof AuthenticatedBuilderDashboardFormsNewRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRouteRouteWithChildren
+  '/_authenticated/_builder': typeof AuthenticatedBuilderRouteWithChildren
   '/f/$slug': typeof FSlugRoute
   '/_authenticated/dashboard/': typeof AuthenticatedDashboardIndexRoute
-  '/_authenticated/dashboard/forms/new': typeof AuthenticatedDashboardFormsNewRoute
+  '/_authenticated/dashboard/forms/': typeof AuthenticatedDashboardFormsIndexRoute
+  '/_authenticated/_builder/dashboard/forms/new': typeof AuthenticatedBuilderDashboardFormsNewRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/dashboard' | '/f/$slug' | '/dashboard/' | '/dashboard/forms/new'
+    | '/'
+    | '/dashboard'
+    | '/f/$slug'
+    | '/dashboard/'
+    | '/dashboard/forms/'
+    | '/dashboard/forms/new'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/f/$slug' | '/dashboard' | '/dashboard/forms/new'
+  to:
+    | '/'
+    | '/f/$slug'
+    | '/dashboard'
+    | '/dashboard/forms'
+    | '/dashboard/forms/new'
   id:
     | '__root__'
     | '/'
     | '/_authenticated'
     | '/_authenticated/dashboard'
+    | '/_authenticated/_builder'
     | '/f/$slug'
     | '/_authenticated/dashboard/'
-    | '/_authenticated/dashboard/forms/new'
+    | '/_authenticated/dashboard/forms/'
+    | '/_authenticated/_builder/dashboard/forms/new'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -109,6 +137,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/_builder': {
+      id: '/_authenticated/_builder'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedBuilderRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/dashboard': {
       id: '/_authenticated/dashboard'
       path: '/dashboard'
@@ -130,25 +165,33 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedDashboardIndexRouteImport
       parentRoute: typeof AuthenticatedDashboardRouteRoute
     }
-    '/_authenticated/dashboard/forms/new': {
-      id: '/_authenticated/dashboard/forms/new'
-      path: '/forms/new'
-      fullPath: '/dashboard/forms/new'
-      preLoaderRoute: typeof AuthenticatedDashboardFormsNewRouteImport
+    '/_authenticated/dashboard/forms/': {
+      id: '/_authenticated/dashboard/forms/'
+      path: '/forms'
+      fullPath: '/dashboard/forms/'
+      preLoaderRoute: typeof AuthenticatedDashboardFormsIndexRouteImport
       parentRoute: typeof AuthenticatedDashboardRouteRoute
+    }
+    '/_authenticated/_builder/dashboard/forms/new': {
+      id: '/_authenticated/_builder/dashboard/forms/new'
+      path: '/dashboard/forms/new'
+      fullPath: '/dashboard/forms/new'
+      preLoaderRoute: typeof AuthenticatedBuilderDashboardFormsNewRouteImport
+      parentRoute: typeof AuthenticatedBuilderRoute
     }
   }
 }
 
 interface AuthenticatedDashboardRouteRouteChildren {
   AuthenticatedDashboardIndexRoute: typeof AuthenticatedDashboardIndexRoute
-  AuthenticatedDashboardFormsNewRoute: typeof AuthenticatedDashboardFormsNewRoute
+  AuthenticatedDashboardFormsIndexRoute: typeof AuthenticatedDashboardFormsIndexRoute
 }
 
 const AuthenticatedDashboardRouteRouteChildren: AuthenticatedDashboardRouteRouteChildren =
   {
     AuthenticatedDashboardIndexRoute: AuthenticatedDashboardIndexRoute,
-    AuthenticatedDashboardFormsNewRoute: AuthenticatedDashboardFormsNewRoute,
+    AuthenticatedDashboardFormsIndexRoute:
+      AuthenticatedDashboardFormsIndexRoute,
   }
 
 const AuthenticatedDashboardRouteRouteWithChildren =
@@ -156,13 +199,27 @@ const AuthenticatedDashboardRouteRouteWithChildren =
     AuthenticatedDashboardRouteRouteChildren,
   )
 
+interface AuthenticatedBuilderRouteChildren {
+  AuthenticatedBuilderDashboardFormsNewRoute: typeof AuthenticatedBuilderDashboardFormsNewRoute
+}
+
+const AuthenticatedBuilderRouteChildren: AuthenticatedBuilderRouteChildren = {
+  AuthenticatedBuilderDashboardFormsNewRoute:
+    AuthenticatedBuilderDashboardFormsNewRoute,
+}
+
+const AuthenticatedBuilderRouteWithChildren =
+  AuthenticatedBuilderRoute._addFileChildren(AuthenticatedBuilderRouteChildren)
+
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedDashboardRouteRoute: typeof AuthenticatedDashboardRouteRouteWithChildren
+  AuthenticatedBuilderRoute: typeof AuthenticatedBuilderRouteWithChildren
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedDashboardRouteRoute:
     AuthenticatedDashboardRouteRouteWithChildren,
+  AuthenticatedBuilderRoute: AuthenticatedBuilderRouteWithChildren,
 }
 
 const AuthenticatedRouteRouteWithChildren =
