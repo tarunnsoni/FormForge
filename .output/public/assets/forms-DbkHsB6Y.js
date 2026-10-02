@@ -1,0 +1,1 @@
+import{r as e,t}from"./jsx-runtime-BkSabwWG.js";var n=e(t());function r(){return(0,n.jsx)(`div`,{children:`Hello "/_authenticated/dashboard/forms/"!`})}export{r as component};

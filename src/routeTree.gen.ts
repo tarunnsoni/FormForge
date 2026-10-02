@@ -15,6 +15,7 @@ import { Route as AuthenticatedBuilderRouteImport } from './routes/_authenticate
 import { Route as AuthenticatedDashboardRouteRouteImport } from './routes/_authenticated/dashboard/route'
 import { Route as FSlugRouteImport } from './routes/f/$slug'
 import { Route as AuthenticatedDashboardIndexRouteImport } from './routes/_authenticated/dashboard/index'
+import { Route as AuthenticatedDashboardSettingsRouteImport } from './routes/_authenticated/dashboard/settings'
 import { Route as AuthenticatedDashboardFormsIndexRouteImport } from './routes/_authenticated/dashboard/forms/index'
 import { Route as AuthenticatedBuilderDashboardFormsNewRouteImport } from './routes/_authenticated/_builder/dashboard/forms/new'
 
@@ -48,6 +49,12 @@ const AuthenticatedDashboardIndexRoute =
     path: '/',
     getParentRoute: () => AuthenticatedDashboardRouteRoute,
   } as any)
+const AuthenticatedDashboardSettingsRoute =
+  AuthenticatedDashboardSettingsRouteImport.update({
+    id: '/settings',
+    path: '/settings',
+    getParentRoute: () => AuthenticatedDashboardRouteRoute,
+  } as any)
 const AuthenticatedDashboardFormsIndexRoute =
   AuthenticatedDashboardFormsIndexRouteImport.update({
     id: '/forms/',
@@ -65,6 +72,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/dashboard': typeof AuthenticatedDashboardRouteRouteWithChildren
   '/f/$slug': typeof FSlugRoute
+  '/dashboard/settings': typeof AuthenticatedDashboardSettingsRoute
   '/dashboard/': typeof AuthenticatedDashboardIndexRoute
   '/dashboard/forms/': typeof AuthenticatedDashboardFormsIndexRoute
   '/dashboard/forms/new': typeof AuthenticatedBuilderDashboardFormsNewRoute
@@ -72,6 +80,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/f/$slug': typeof FSlugRoute
+  '/dashboard/settings': typeof AuthenticatedDashboardSettingsRoute
   '/dashboard': typeof AuthenticatedDashboardIndexRoute
   '/dashboard/forms': typeof AuthenticatedDashboardFormsIndexRoute
   '/dashboard/forms/new': typeof AuthenticatedBuilderDashboardFormsNewRoute
@@ -83,6 +92,7 @@ export interface FileRoutesById {
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRouteRouteWithChildren
   '/_authenticated/_builder': typeof AuthenticatedBuilderRouteWithChildren
   '/f/$slug': typeof FSlugRoute
+  '/_authenticated/dashboard/settings': typeof AuthenticatedDashboardSettingsRoute
   '/_authenticated/dashboard/': typeof AuthenticatedDashboardIndexRoute
   '/_authenticated/dashboard/forms/': typeof AuthenticatedDashboardFormsIndexRoute
   '/_authenticated/_builder/dashboard/forms/new': typeof AuthenticatedBuilderDashboardFormsNewRoute
@@ -93,6 +103,7 @@ export interface FileRouteTypes {
     | '/'
     | '/dashboard'
     | '/f/$slug'
+    | '/dashboard/settings'
     | '/dashboard/'
     | '/dashboard/forms/'
     | '/dashboard/forms/new'
@@ -100,6 +111,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/f/$slug'
+    | '/dashboard/settings'
     | '/dashboard'
     | '/dashboard/forms'
     | '/dashboard/forms/new'
@@ -110,6 +122,7 @@ export interface FileRouteTypes {
     | '/_authenticated/dashboard'
     | '/_authenticated/_builder'
     | '/f/$slug'
+    | '/_authenticated/dashboard/settings'
     | '/_authenticated/dashboard/'
     | '/_authenticated/dashboard/forms/'
     | '/_authenticated/_builder/dashboard/forms/new'
@@ -165,6 +178,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedDashboardIndexRouteImport
       parentRoute: typeof AuthenticatedDashboardRouteRoute
     }
+    '/_authenticated/dashboard/settings': {
+      id: '/_authenticated/dashboard/settings'
+      path: '/settings'
+      fullPath: '/dashboard/settings'
+      preLoaderRoute: typeof AuthenticatedDashboardSettingsRouteImport
+      parentRoute: typeof AuthenticatedDashboardRouteRoute
+    }
     '/_authenticated/dashboard/forms/': {
       id: '/_authenticated/dashboard/forms/'
       path: '/forms'
@@ -183,12 +203,14 @@ declare module '@tanstack/react-router' {
 }
 
 interface AuthenticatedDashboardRouteRouteChildren {
+  AuthenticatedDashboardSettingsRoute: typeof AuthenticatedDashboardSettingsRoute
   AuthenticatedDashboardIndexRoute: typeof AuthenticatedDashboardIndexRoute
   AuthenticatedDashboardFormsIndexRoute: typeof AuthenticatedDashboardFormsIndexRoute
 }
 
 const AuthenticatedDashboardRouteRouteChildren: AuthenticatedDashboardRouteRouteChildren =
   {
+    AuthenticatedDashboardSettingsRoute: AuthenticatedDashboardSettingsRoute,
     AuthenticatedDashboardIndexRoute: AuthenticatedDashboardIndexRoute,
     AuthenticatedDashboardFormsIndexRoute:
       AuthenticatedDashboardFormsIndexRoute,

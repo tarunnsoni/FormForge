@@ -1,0 +1,769 @@
+import { i as __toESM } from "../_runtime.mjs";
+import { b as require_react, y as require_jsx_runtime } from "../_libs/@clerk/react+[...].mjs";
+import { S as Link } from "../_libs/@tanstack/react-router+[...].mjs";
+import { n as Input, r as dist_exports, t as Button } from "./input-DrxRAvqe.mjs";
+import { n as Card, r as CardContent, t as Badge } from "./card-BYT9-oCN.mjs";
+import { D as GripVertical, F as ChevronDown, I as Check, M as Clipboard, O as GitBranch, b as Menu, c as Sparkles, h as Play, k as FileText, l as SlidersHorizontal, m as Plus, n as TrendingUp, p as Rocket, t as X, w as LayoutTemplate, y as MessageSquare, z as ArrowRight } from "../_libs/lucide-react.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/routes-UH-46Xo1.js
+var import_react = /* @__PURE__ */ __toESM(require_react());
+var import_jsx_runtime = /* @__PURE__ */ __toESM(require_jsx_runtime());
+function HeaderUser() {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(dist_exports.Show, {
+		when: "signed-out",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
+			asChild: true,
+			variant: "ghost",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(dist_exports.SignInButton, {
+				mode: "modal",
+				children: "Sign In"
+			})
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
+			asChild: true,
+			className: "h-10 rounded-lg bg-indigo-600 px-5 text-sm font-medium text-white shadow-sm transition-all hover:bg-indigo-700 hover:shadow-md",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(dist_exports.SignUpButton, {
+				mode: "modal",
+				children: "Sign Up"
+			})
+		})]
+	}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(dist_exports.Show, {
+		when: "signed-in",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
+			asChild: true,
+			className: "h-10 rounded-lg bg-indigo-600 px-5 text-sm font-medium text-white shadow-sm transition-all hover:bg-indigo-700 hover:shadow-md",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+				to: "/dashboard/forms/new",
+				children: "Create a Form"
+			})
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(dist_exports.UserButton, {})]
+	})] });
+}
+function Navbar() {
+	const [isOpen, setIsOpen] = (0, import_react.useState)(false);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("header", {
+		className: "sticky top-0 z-50 w-full border-b border-neutral-200/80 bg-[#faf9fc]/90 backdrop-blur-md",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "mx-auto flex h-18 max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
+					to: "/",
+					className: "flex items-center gap-2.5",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "flex size-8 items-center justify-center rounded-lg bg-indigo-500 text-white shadow-sm",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FileText, {
+							className: "size-4.5",
+							strokeWidth: 2.2
+						})
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "text-[17px] font-semibold tracking-[-0.02em] text-neutral-900",
+						children: "FormForge"
+					})]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("nav", {
+					className: "hidden items-center gap-8 md:flex",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+						href: "#features",
+						className: "text-sm font-medium text-neutral-600 transition-colors hover:text-neutral-950",
+						children: "Features"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+						href: "#how-it-works",
+						className: "text-sm font-medium text-neutral-600 transition-colors hover:text-neutral-950",
+						children: "How it Works"
+					})]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "hidden items-center gap-5 md:flex",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(HeaderUser, {})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "flex items-center gap-2 md:hidden",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(dist_exports.Show, {
+						when: "signed-in",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(dist_exports.UserButton, {})
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+						type: "button",
+						"aria-label": isOpen ? "Close menu" : "Open menu",
+						"aria-expanded": isOpen,
+						onClick: () => setIsOpen((value) => !value),
+						className: "flex size-9 items-center justify-center rounded-lg text-neutral-700 transition-colors hover:bg-neutral-100",
+						children: isOpen ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(X, { className: "size-5" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Menu, { className: "size-5" })
+					})]
+				})
+			]
+		}), isOpen && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "border-t border-neutral-200 bg-[#faf9fc] md:hidden",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("nav", {
+				className: "mx-auto flex max-w-7xl flex-col gap-1 px-5 py-4 sm:px-8",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+						href: "#features",
+						onClick: () => setIsOpen(false),
+						className: "rounded-lg px-3 py-2.5 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-100",
+						children: "Features"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+						href: "#how-it-works",
+						onClick: () => setIsOpen(false),
+						className: "rounded-lg px-3 py-2.5 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-100",
+						children: "How it Works"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "my-2 h-px bg-neutral-200" }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(dist_exports.Show, {
+						when: "signed-out",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
+							asChild: true,
+							variant: "secondary",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(dist_exports.SignInButton, {
+								mode: "modal",
+								children: "Sign In"
+							})
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
+							asChild: true,
+							className: "h-10 rounded-lg bg-indigo-600 px-5 text-sm font-medium text-white shadow-sm transition-all hover:bg-indigo-700 hover:shadow-md",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(dist_exports.SignUpButton, {
+								mode: "modal",
+								children: "Sign Up"
+							})
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(dist_exports.Show, {
+						when: "signed-in",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
+							asChild: true,
+							className: "h-10 rounded-lg bg-indigo-600 px-5 text-sm font-medium text-white shadow-sm transition-all hover:bg-indigo-700 hover:shadow-md",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+								to: "/dashboard/forms/new",
+								onClick: () => setIsOpen(false),
+								children: "Create a Form"
+							})
+						})
+					})
+				]
+			})
+		})]
+	});
+}
+function Hero() {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
+		className: "py-10 text-center sm:py-14 lg:py-18",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "mx-auto flex max-w-4xl flex-col items-center",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Badge, {
+					variant: "secondary",
+					className: "mb-7 rounded-full border border-neutral-200 bg-white px-3.5 py-1.5 font-normal text-neutral-700",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sparkles, { className: "mr-1.5 size-3.5 text-indigo-600" }), "AI-powered form builder"]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+					className: "text-4xl font-semibold leading-[1.08] tracking-[-0.045em] text-neutral-950 sm:text-5xl md:text-6xl lg:text-[68px]",
+					children: "Build forms by simply describing what you need."
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "mt-6 max-w-2xl text-base leading-7 text-neutral-600 sm:text-lg",
+					children: "Turn your requirements into polished, functional forms with AI. Customize every question, publish anywhere, and collect responses without the busywork."
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "mt-8 flex flex-col items-center gap-3 sm:flex-row",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(dist_exports.Show, {
+						when: "signed-in",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
+							asChild: true,
+							size: "lg",
+							className: "h-11 rounded-lg bg-indigo-600 px-6 shadow-sm hover:bg-indigo-700",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
+								to: "/dashboard/forms/new",
+								children: ["Create a Form", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, {})]
+							})
+						})
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
+						asChild: true,
+						variant: "outline",
+						size: "lg",
+						className: "h-11 rounded-lg border-neutral-200 bg-white px-6 shadow-sm hover:bg-neutral-50",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
+							href: "#how-it-works",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Play, { className: "fill-current" }), "See how it works"]
+						})
+					})]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "mt-7 text-xs text-neutral-500",
+					children: "Create surveys, applications, feedback forms, and more."
+				})
+			]
+		})
+	});
+}
+function ProductPreview() {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
+		className: "mx-auto w-full max-w-5xl px-4 py-6 sm:py-8 lg:py-10",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Card, {
+			className: "overflow-hidden rounded-2xl border-neutral-200 bg-white shadow-sm",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "flex h-12 items-center justify-between border-b border-neutral-200 px-3 sm:px-5",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "flex min-w-0 items-center gap-2",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "hidden text-sm font-semibold text-neutral-900 sm:block",
+							children: "FormForge"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "hidden text-neutral-300 sm:block",
+							children: "/"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "truncate text-[11px] font-medium text-neutral-700 sm:text-xs",
+							children: "Customer Feedback"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Badge, {
+							variant: "secondary",
+							className: "hidden h-5 gap-1 px-1.5 text-[9px] font-normal sm:inline-flex",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "size-1.5 rounded-full bg-emerald-500" }), "Saved"]
+						})
+					]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "flex items-center gap-1.5",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
+						variant: "outline",
+						size: "sm",
+						className: "hidden h-7 text-[10px] sm:inline-flex",
+						children: "Preview"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
+						size: "sm",
+						className: "h-7 rounded-md bg-indigo-600 px-3 text-[10px] hover:bg-indigo-700 sm:text-xs",
+						children: "Publish"
+					})]
+				})]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "bg-neutral-50/60 p-3 sm:p-6 lg:p-8",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "mx-auto max-w-2xl",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "mb-3 rounded-xl border border-indigo-100 bg-indigo-50/50 p-3 sm:p-4",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "flex items-start gap-2.5",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									className: "flex size-7 shrink-0 items-center justify-center rounded-md bg-indigo-600 text-white",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sparkles, { className: "size-3.5" })
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "min-w-0",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+										className: "text-[10px] font-medium text-indigo-950 sm:text-xs",
+										children: "AI generated this form"
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+										className: "mt-1 text-[10px] leading-4 text-indigo-900/60 sm:text-xs",
+										children: "\"Create a customer feedback form for my SaaS product.\""
+									})]
+								})]
+							})
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Card, {
+							className: "mb-3 rounded-xl border-neutral-200 p-4 shadow-none sm:p-5",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "flex items-center gap-2",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Badge, {
+										variant: "secondary",
+										className: "h-5 px-1.5 text-[9px] font-normal",
+										children: "Step 1 of 1"
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										className: "text-[9px] text-neutral-400",
+										children: "Public Form"
+									})]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+									className: "mt-3 text-base font-semibold tracking-tight text-neutral-950 sm:text-lg",
+									children: "Customer Feedback"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+									className: "mt-1 text-[10px] leading-4 text-neutral-500 sm:text-xs",
+									children: "Help us understand your experience and improve our product."
+								})
+							]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "space-y-2.5",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)(QuestionCard, {
+									number: "01",
+									title: "How satisfied are you?",
+									required: true,
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+										className: "flex gap-1.5",
+										children: [
+											1,
+											2,
+											3,
+											4,
+											5
+										].map((value) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+											className: `flex size-7 items-center justify-center rounded-md border text-[9px] sm:size-8 sm:text-[10px] ${value === 4 ? "border-indigo-600 bg-indigo-600 text-white" : "border-neutral-200 bg-white text-neutral-500"}`,
+											children: value
+										}, value))
+									})
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)(QuestionCard, {
+									number: "02",
+									title: "What did you like most?",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+										className: "flex h-8 items-center justify-between rounded-md bg-neutral-100 px-3 text-[10px] text-neutral-400 sm:text-xs",
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Select an option" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronDown, { className: "size-3.5" })]
+									})
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)(QuestionCard, {
+									number: "03",
+									title: "What could we improve?",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+										className: "flex h-8 items-center rounded-md bg-neutral-100 px-3 text-[10px] text-neutral-400 sm:text-xs",
+										children: "Share your thoughts..."
+									})
+								})
+							]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
+							variant: "outline",
+							className: "mt-2.5 h-9 w-full border-dashed bg-white text-[10px] font-normal text-neutral-500 sm:text-xs",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Plus, { className: "size-3.5" }), "Add question"]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "mt-4 flex justify-center",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+								type: "button",
+								className: "flex items-center gap-1.5 text-[9px] text-neutral-400 transition-colors hover:text-neutral-700 sm:text-[10px]",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sparkles, { className: "size-3 text-indigo-500" }), "AI suggested 2 improvements"]
+							})
+						})
+					]
+				})
+			})]
+		})
+	});
+}
+function QuestionCard({ number, title, required = false, children }) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Card, {
+		className: "rounded-xl border-neutral-200 p-3.5 shadow-none sm:p-4",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "flex gap-2.5",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(GripVertical, { className: "mt-0.5 hidden size-3.5 shrink-0 text-neutral-300 sm:block" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "min-w-0 flex-1",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "flex items-center gap-1.5",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "font-mono text-[9px] text-neutral-400",
+						children: number
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+						className: "truncate text-[10px] font-medium text-neutral-900 sm:text-xs",
+						children: [title, required && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "ml-1 text-red-500",
+							children: "*"
+						})]
+					})]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "mt-2.5",
+					children
+				})]
+			})]
+		})
+	});
+}
+var features = [
+	{
+		title: "AI Form Generation",
+		description: "Describe what you need in plain language and let AI create a complete form in seconds.",
+		link: "Generate a form",
+		icon: Sparkles,
+		iconClassName: "bg-indigo-100 text-indigo-600"
+	},
+	{
+		title: "Visual Form Builder",
+		description: "Customize questions, fields, validation, and layout with a simple visual editor.",
+		link: "Explore the builder",
+		icon: LayoutTemplate,
+		iconClassName: "bg-violet-100 text-violet-600"
+	},
+	{
+		title: "Smart Logic & Rules",
+		description: "Create conditional questions and dynamic paths that adapt to every response.",
+		link: "Explore smart logic",
+		icon: GitBranch,
+		iconClassName: "bg-neutral-100 text-neutral-700"
+	},
+	{
+		title: "Response Insights",
+		description: "Turn collected responses into useful summaries, patterns, and actionable insights.",
+		link: "Explore analytics",
+		icon: TrendingUp,
+		iconClassName: "bg-rose-100 text-rose-600"
+	}
+];
+function Features() {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
+		id: "features",
+		className: "py-6 sm:py-8 lg:py-10",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "mx-auto max-w-7xl px-5 sm:px-8 lg:px-10",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "mx-auto max-w-2xl text-center",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Badge, {
+						variant: "secondary",
+						className: "mb-4 border-0 bg-indigo-50 px-2.5 py-1 text-[10px] font-medium uppercase tracking-wide text-indigo-600",
+						children: "Built for better forms"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+						className: "text-2xl font-semibold tracking-[-0.03em] text-neutral-950 sm:text-3xl lg:text-4xl",
+						children: "Everything you need to build smarter forms"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "mx-auto mt-3 max-w-xl text-sm leading-6 text-neutral-500 sm:text-[15px]",
+						children: "From generating your first question with AI to understanding every response, FormForge keeps your entire form workflow in one place."
+					})
+				]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "mt-8 grid gap-4 sm:grid-cols-2 lg:mt-9 lg:grid-cols-4",
+				children: features.map((feature) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FeatureCard, { ...feature }, feature.title))
+			})]
+		})
+	});
+}
+function FeatureCard({ title, description, link, icon: Icon, iconClassName }) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Card, {
+		className: "group rounded-xl border-neutral-200 bg-white shadow-none transition-colors hover:border-neutral-300",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(CardContent, {
+			className: "flex h-full flex-col p-5",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: `flex size-8 items-center justify-center rounded-lg ${iconClassName}`,
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icon, {
+						className: "size-4",
+						strokeWidth: 2
+					})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "mt-5",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+						className: "text-sm font-semibold tracking-tight text-neutral-900",
+						children: title
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "mt-2 text-xs leading-5 text-neutral-500",
+						children: description
+					})]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
+					variant: "link",
+					className: "mt-auto h-auto justify-start p-0 pt-8 text-[11px] font-medium text-indigo-600 no-underline hover:no-underline",
+					children: [link, /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, { className: "ml-1 size-3 transition-transform group-hover:translate-x-0.5" })]
+				})
+			]
+		})
+	});
+}
+var steps = [
+	{
+		number: "01",
+		label: "DESCRIBE",
+		title: "Describe what you need",
+		description: "Tell FormForge what you're building in plain language. AI turns your idea into a structured form.",
+		icon: MessageSquare,
+		iconClassName: "bg-indigo-50 text-indigo-600",
+		preview: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "rounded-md bg-neutral-50 px-3 py-2",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+				className: "truncate text-[9px] text-neutral-400",
+				children: "Create a customer feedback form for my SaaS..."
+			})
+		})
+	},
+	{
+		number: "02",
+		label: "REFINE",
+		title: "Review & customize",
+		description: "Fine-tune questions, validation, and field types with the visual builder before publishing.",
+		icon: SlidersHorizontal,
+		iconClassName: "bg-violet-50 text-violet-600",
+		preview: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "flex items-center justify-between rounded-md bg-neutral-50 px-3 py-2",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "flex items-center gap-1.5",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Check, { className: "size-3 text-indigo-600" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+					className: "text-[9px] text-neutral-500",
+					children: "Form ready to publish"
+				})]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+				className: "text-[9px] font-medium text-indigo-600",
+				children: "Preview"
+			})]
+		})
+	},
+	{
+		number: "03",
+		label: "PUBLISH",
+		title: "Share & collect responses",
+		description: "Publish your form with one click, share the link, and start collecting responses immediately.",
+		icon: Rocket,
+		iconClassName: "bg-emerald-50 text-emerald-600",
+		preview: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "flex items-center justify-between rounded-md bg-neutral-50 px-3 py-2",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+				className: "truncate text-[9px] text-neutral-400",
+				children: "formforge.app/f/customer-feedback"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Clipboard, { className: "ml-2 size-3 shrink-0 text-neutral-400" })]
+		})
+	}
+];
+function HowItWorks() {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
+		id: "how-it-works",
+		className: "py-6 sm:py-8 lg:py-10",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "mx-auto max-w-7xl px-5 sm:px-8 lg:px-10",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "mx-auto max-w-2xl text-center",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Badge, {
+						variant: "secondary",
+						className: "mb-4 border-0 bg-indigo-50 px-2.5 py-1 text-[10px] font-medium uppercase tracking-wide text-indigo-600",
+						children: "Simple workflow"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+						className: "text-2xl font-semibold tracking-[-0.03em] text-neutral-950 sm:text-3xl lg:text-4xl",
+						children: "From idea to published form in three steps"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "mx-auto mt-3 max-w-xl text-sm leading-6 text-neutral-500 sm:text-[15px]",
+						children: "Describe what you need, refine the result, and share your form. FormForge handles the rest."
+					})
+				]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "mt-8 grid gap-4 md:grid-cols-3 lg:mt-9",
+				children: steps.map((step) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(HowItWorksCard, {
+					number: step.number,
+					label: step.label,
+					title: step.title,
+					description: step.description,
+					icon: step.icon,
+					iconClassName: step.iconClassName,
+					preview: step.preview
+				}, step.number))
+			})]
+		})
+	});
+}
+function HowItWorksCard({ number, label, title, description, icon: Icon, iconClassName = "bg-indigo-50 text-indigo-600", preview }) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Card, {
+		className: "rounded-xl border-neutral-200 bg-white shadow-none",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(CardContent, {
+			className: "flex h-full flex-col p-5",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Badge, {
+					variant: "secondary",
+					className: "h-5 w-fit rounded-md border-0 bg-indigo-50 px-2 font-mono text-[9px] font-medium text-indigo-600",
+					children: [
+						number,
+						" — ",
+						label
+					]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: `mt-5 flex size-9 items-center justify-center rounded-lg ${iconClassName}`,
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icon, {
+						className: "size-4",
+						strokeWidth: 2
+					})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "mt-4",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+						className: "text-sm font-semibold tracking-tight text-neutral-900",
+						children: title
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "mt-2 text-xs leading-5 text-neutral-500",
+						children: description
+					})]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "mt-auto pt-6",
+					children: preview
+				})
+			]
+		})
+	});
+}
+var suggestions = [
+	"Customer feedback",
+	"Job application",
+	"Event registration"
+];
+function CTA() {
+	const [prompt, setPrompt] = (0, import_react.useState)("");
+	const handleGenerate = () => {
+		if (!prompt.trim()) return;
+		console.log("Generate form:", prompt);
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
+		className: "px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "mx-auto max-w-7xl",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Card, {
+				className: "mx-auto max-w-3xl overflow-hidden rounded-2xl border-0 bg-neutral-800 shadow-lg",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CardContent, {
+					className: "px-4 py-9 sm:px-8 sm:py-12 lg:px-12 lg:py-14",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "mx-auto max-w-2xl text-center",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Badge, {
+								variant: "secondary",
+								className: "border-0 bg-neutral-800 px-3 py-1 text-[9px] font-medium text-neutral-300",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sparkles, { className: "mr-1.5 size-3 text-indigo-400" }), "Build faster with AI"]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+								className: "mt-5 text-2xl font-semibold tracking-[-0.03em] text-white sm:text-3xl",
+								children: "Ready to build smarter forms?"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "mx-auto mt-3 max-w-lg text-xs leading-5 text-neutral-400 sm:text-sm sm:leading-6",
+								children: "Describe what you want to collect and let FormForge turn your idea into a ready-to-edit form."
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "mx-auto mt-7 max-w-xl rounded-xl bg-white p-2",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "flex items-center gap-2 px-2",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sparkles, { className: "size-4 shrink-0 text-indigo-500" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Input, {
+										value: prompt,
+										onChange: (event) => setPrompt(event.target.value),
+										onKeyDown: (event) => {
+											if (event.key === "Enter") handleGenerate();
+										},
+										placeholder: "Describe the form you want...",
+										className: "h-9 border-0 bg-transparent px-0 text-xs text-neutral-900 shadow-none placeholder:text-neutral-400 focus-visible:ring-0 sm:text-sm"
+									})]
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "mt-2",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(dist_exports.Show, {
+										when: "signed-out",
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(dist_exports.SignUpButton, {
+											mode: "modal",
+											children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
+												type: "button",
+												className: "h-10 w-full rounded-lg bg-indigo-600 text-xs font-medium text-white hover:bg-indigo-700 sm:h-9",
+												children: ["Generate with AI", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, { className: "ml-1.5 size-3.5" })]
+											})
+										})
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(dist_exports.Show, {
+										when: "signed-in",
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
+											type: "button",
+											onClick: handleGenerate,
+											disabled: !prompt.trim(),
+											className: "h-10 w-full rounded-lg bg-indigo-600 text-xs font-medium text-white hover:bg-indigo-700 disabled:pointer-events-none disabled:opacity-50 sm:h-9",
+											children: ["Generate with AI", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, { className: "ml-1.5 size-3.5" })]
+										})
+									})]
+								})]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "mt-4",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+									className: "mb-2 text-[9px] text-neutral-500",
+									children: "Try asking"
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									className: "flex flex-wrap justify-center gap-1.5",
+									children: suggestions.map((suggestion) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+										type: "button",
+										onClick: () => setPrompt(suggestion),
+										className: "rounded-full bg-neutral-800 px-2.5 py-1.5 text-[9px] text-neutral-400 transition-colors hover:bg-neutral-700 hover:text-neutral-200",
+										children: suggestion
+									}, suggestion))
+								})]
+							})
+						]
+					})
+				})
+			})
+		})
+	});
+}
+var footerLinks = [
+	{
+		label: "Privacy",
+		href: "#"
+	},
+	{
+		label: "Terms",
+		href: "#"
+	},
+	{
+		label: "Security",
+		href: "#"
+	},
+	{
+		label: "System Status",
+		href: "#"
+	}
+];
+function Footer() {
+	const currentYear = (/* @__PURE__ */ new Date()).getFullYear();
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("footer", {
+		className: "px-4 pb-4 sm:px-6 lg:px-8",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "mx-auto max-w-7xl overflow-hidden rounded-t-2xl border border-neutral-200 bg-[#faf9fc]",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "flex flex-col gap-6 px-5 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-7 sm:py-5",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-2.5",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
+							to: "/",
+							className: "flex w-fit items-center gap-2 text-sm font-semibold tracking-tight text-neutral-900",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "flex size-6 items-center justify-center rounded-md bg-indigo-600 text-white",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FileText, {
+									className: "size-3.5",
+									strokeWidth: 2.2
+								})
+							}), "FormForge"]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "hidden text-neutral-300 sm:inline",
+							children: "/"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+							className: "text-[10px] leading-4 text-neutral-400 sm:text-[11px]",
+							children: [
+								"© ",
+								currentYear,
+								" FormForge, Inc. Crafted for clarity."
+							]
+						})
+					]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("nav", {
+					className: "flex flex-wrap gap-x-5 gap-y-2 sm:justify-end",
+					children: footerLinks.map((link) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+						href: link.href,
+						className: "text-[10px] text-neutral-500 transition-colors hover:text-neutral-900 sm:text-[11px]",
+						children: link.label
+					}, link.label))
+				})]
+			})
+		})
+	});
+}
+function Home() {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "min-h-screen",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Navbar, {}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("main", {
+			className: "mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Hero, {}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductPreview, {}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Features, {}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(HowItWorks, {}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CTA, {}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Footer, {})
+			]
+		})]
+	});
+}
+//#endregion
+export { Home as component };
