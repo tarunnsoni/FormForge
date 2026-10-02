@@ -1,5 +1,5 @@
 import { useUser } from "@clerk/tanstack-react-start";
-import { getGreeting } from "#/lib/helper";
+import { getGreeting } from "#/lib/utils";
 
 export const GreetingSection = () => {
   const { user, isLoaded } = useUser()
