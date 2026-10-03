@@ -110,6 +110,7 @@ export function Navbar() {
               >
                 <Link
                   to="/dashboard/forms/new"
+                  search={{prompt: ""}}
                   onClick={() => setIsOpen(false)}
                 >
                   Create a Form

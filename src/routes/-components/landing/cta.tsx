@@ -1,34 +1,37 @@
-import { useState } from "react";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { useState } from 'react'
+import { ArrowRight, Sparkles } from 'lucide-react'
 
-import {
-  Show,
-  SignUpButton,
-} from "@clerk/tanstack-react-start";
+import { Show, SignUpButton } from '@clerk/tanstack-react-start'
 
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent } from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
+import { Link } from '@tanstack/react-router'
 
 const suggestions = [
-  "Customer feedback",
-  "Job application",
-  "Event registration",
-];
+  {
+    prompt: 'Customer feedback',
+    actualPrompt:
+      'Create a customer feedback survey with NPS, CSAT scale, and open comments',
+  },
+  {
+    prompt: 'Frontend job application',
+    actualPrompt:
+      'Create a frontend developer job application form with personal details, experience, portfolio, and technical skills',
+  },
+  {
+    prompt: 'Event RSVP',
+    actualPrompt:
+      'Create an event RSVP form with attendee details, attendance confirmation, dietary preferences, and guest count',
+  },
+]
 
 export function CTA() {
-  const [prompt, setPrompt] = useState("");
-
-  const handleGenerate = () => {
-    if (!prompt.trim()) return;
-
-    // We'll connect this to the actual AI form generation flow later.
-    console.log("Generate form:", prompt);
-  };
+  const [prompt, setPrompt] = useState('')
 
   return (
-    <section className="px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
+    <section id='cta' className="px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
       <div className="mx-auto max-w-7xl">
         <Card className="mx-auto max-w-3xl overflow-hidden rounded-2xl border-0 bg-neutral-800 shadow-lg">
           <CardContent className="px-4 py-9 sm:px-8 sm:py-12 lg:px-12 lg:py-14">
@@ -57,11 +60,6 @@ export function CTA() {
                   <Input
                     value={prompt}
                     onChange={(event) => setPrompt(event.target.value)}
-                    onKeyDown={(event) => {
-                      if (event.key === "Enter") {
-                        handleGenerate();
-                      }
-                    }}
                     placeholder="Describe the form you want..."
                     className="h-9 border-0 bg-transparent px-0 text-xs text-neutral-900 shadow-none placeholder:text-neutral-400 focus-visible:ring-0 sm:text-sm"
                   />
@@ -81,33 +79,35 @@ export function CTA() {
                   </Show>
 
                   <Show when="signed-in">
-                    <Button
-                      type="button"
-                      onClick={handleGenerate}
+                    <Link
+                      to="/dashboard/forms/new"
                       disabled={!prompt.trim()}
-                      className="h-10 w-full rounded-lg bg-indigo-600 text-xs font-medium text-white hover:bg-indigo-700 disabled:pointer-events-none disabled:opacity-50 sm:h-9"
+                      search={{ prompt: prompt }}
                     >
-                      Generate with AI
-                      <ArrowRight className="ml-1.5 size-3.5" />
-                    </Button>
+                      <Button
+                        type="button"
+                        className="h-10 w-full rounded-lg bg-indigo-600 text-xs font-medium text-white hover:bg-indigo-700 sm:h-9"
+                      >
+                        Generate with AI
+                        <ArrowRight className="ml-1.5 size-3.5" />
+                      </Button>
+                    </Link>
                   </Show>
                 </div>
               </div>
 
               <div className="mt-4">
-                <p className="mb-2 text-[9px] text-neutral-500">
-                  Try asking
-                </p>
+                <p className="mb-2 text-[9px] text-neutral-500">Try asking</p>
 
                 <div className="flex flex-wrap justify-center gap-1.5">
                   {suggestions.map((suggestion) => (
                     <button
-                      key={suggestion}
+                      key={suggestion.prompt}
                       type="button"
-                      onClick={() => setPrompt(suggestion)}
+                      onClick={() => setPrompt(suggestion.actualPrompt)}
                       className="rounded-full bg-neutral-800 px-2.5 py-1.5 text-[9px] text-neutral-400 transition-colors hover:bg-neutral-700 hover:text-neutral-200"
                     >
-                      {suggestion}
+                      {suggestion.prompt}
                     </button>
                   ))}
                 </div>
@@ -117,5 +117,5 @@ export function CTA() {
         </Card>
       </div>
     </section>
-  );
+  )
 }

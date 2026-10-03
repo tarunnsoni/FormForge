@@ -1,9 +1,8 @@
-import { ArrowRight, Play, Sparkles } from "lucide-react";
-import { Link } from "@tanstack/react-router";
+import { ArrowRight, Play, Sparkles } from 'lucide-react'
 
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Show } from "@clerk/tanstack-react-start";
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { Show } from '@clerk/tanstack-react-start'
 
 export function Hero() {
   return (
@@ -17,7 +16,7 @@ export function Hero() {
           AI-powered form builder
         </Badge>
 
-        <h1 className="text-4xl font-semibold leading-[1.08] tracking-[-0.045em] text-neutral-950 sm:text-5xl md:text-6xl lg:text-[68px]">
+        <h1 className="text-4xl leading-[1.08] font-semibold tracking-[-0.045em] text-neutral-950 sm:text-5xl md:text-6xl lg:text-[68px]">
           Build forms by simply describing what you need.
         </h1>
 
@@ -28,16 +27,16 @@ export function Hero() {
         </p>
 
         <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row">
-          <Show when='signed-in'>
+          <Show when="signed-in">
             <Button
               asChild
               size="lg"
               className="h-11 rounded-lg bg-indigo-600 px-6 shadow-sm hover:bg-indigo-700"
             >
-              <Link to="/dashboard/forms/new">
+              <a href="#cta">
                 Create a Form
                 <ArrowRight />
-              </Link>
+              </a>
             </Button>
           </Show>
 
@@ -59,5 +58,5 @@ export function Hero() {
         </p>
       </div>
     </section>
-  );
+  )
 }
