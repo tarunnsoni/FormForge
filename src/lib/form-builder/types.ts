@@ -18,11 +18,18 @@ export type FieldConfig = {
 
 export type FormField = {
   id: string
-  form_id: string
+  form_id: string | null
   type: FieldType
   label: string
   description: string | null
   required: boolean
   position: number
   config: FieldConfig
+}
+
+export type FormBuilderState = {
+  id: string | null
+  title: string
+  description: string | null
+  fields: FormField[]
 }
